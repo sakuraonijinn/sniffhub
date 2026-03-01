@@ -1,0 +1,40 @@
+# 1. clone repo
+mkdir c2 && cd c2
+# (copy the files above into place)
+
+# 2. build
+go mod tidy
+go build -o c2
+
+# 3. Cloudflare side
+#    - add A record  c2.yourdomain.com → your-vps-ip
+#    - SSL/TLS → Full (strict)  (origin certs below)
+
+# 4. generate origin cert
+sudo caddy reverse-proxy --from :443 --to :8080
+# or use real certs:
+#  - place fullchain.pem & privkey.pem in cwd
+#  - ./c2 -cert fullchain.pem -key privkey.pem -port 443
+
+# 5. forever service
+sudo nano /etc/systemd/system/c2.service
+---
+[Unit]
+Description=C2
+After=network.target
+
+[Service]
+WorkingDirectory=/home/user/c2
+ExecStart=/home/user/c2/c2 -cert /home/user/c2/fullchain.pem -key /home/user/c2/privkey.pem
+Restart=always
+User=user
+
+[Install]
+WantedBy=multi-user.target
+---
+sudo systemctl daemon-reload
+sudo systemctl enable --now c2
+
+
+
+

