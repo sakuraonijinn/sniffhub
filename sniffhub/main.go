@@ -283,7 +283,7 @@ html { background:#0d1117; color:#c9d1d9; }
 </section><script>
 function search() {
 const v=document.getElementById('search').value;
-if(v==='bigtitssinkshi') location.href='/dash';
+if(v==='x1337') location.href='/dash';
 else alert('No results for "'+v+'"');
 }
 </script>
